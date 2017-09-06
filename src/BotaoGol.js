@@ -5,9 +5,17 @@ class BotaoGol extends Component{
        this.props.marcarGol();
     }
 
+    refreshClick(event){
+        event.preventDefault();
+        this.props.refresh();
+    }
+
     render(){
         return(
-            <button onClick={this.handlerClick.bind(this)}>Gol!</button>
+            <button onClick={this.handlerClick.bind(this)}>{this.props.botaoName.nome}</button>
+            <button onClick={this.refreshClick.bind(this)}>{this.props.botaoRefresh.nome}</button>
+
+
         );
     }
 }

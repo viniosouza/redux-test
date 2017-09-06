@@ -14,14 +14,21 @@ const dados = {
   },
   visitante:{
     nome: "Flamengo",
-  }
+  },
+
+  botaoName:{
+    nome: "Gol",
+  },
+  botaoRefresh:{
+    nome: "Refresh"
+  },
 };
 
 class App extends Component {
   render() {
     return (
       <div>
-        <PlacaContainer partida={dados.partida} casa={dados.casa} visitante={dados.visitante} />
+        <PlacaContainer {...dados} tempo={32} />
       </div>
 
     );

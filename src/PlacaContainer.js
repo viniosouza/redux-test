@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Time from './Time';
 import Partida from './Partida';
 
+
 class PlacaContainer extends Component {
     constructor() {
         super();
@@ -23,25 +24,54 @@ class PlacaContainer extends Component {
     });
 
 }
+    refresh(){
+        this.setState({
+            gols_casa: this.state.gols_casa = 0,
+            gols_visitante: this.state.gols_visitante = 0,
+
+        });
+    }
+
 
     render() {
+        // Estração de dados
+
+        const { partida, casa, visitante} = this.props;
+        const estilo = {float: "left", "marginRight":"20px"};
+
         return (
             <div>
-                <div style={{float: "left", "marginRight": "10px"}}>
+                <div style={estilo}>
                     <h3>Casa</h3>
-                    <Time nome={this.props.casa.nome } gols={this.state.gols_casa} marcarGol={this.marcarGolCasa.bind(this)}/>
+                    <Time nome={casa.nome } gols={this.state.gols_casa} marcarGol={this.marcarGolCasa.bind(this)} />
                 </div>
-                <div style={{float: "left", "marginRight": "10px"}}>
-                  <Partida estadio={this.props.partida.estadio} data={this.props.partida.data}
-                  horario={this.props.partida.horario}/>
+                <div style={estilo}>
+                  <Partida {...partida} />
                 </div>
-                <div style={{float: "left", "marginRight": "10px"}}>
+
+                <div style={estilo}>
                     <h3>Visitantes</h3>
-                    <Time nome={this.props.visitante.nome} gols={this.state.gols_visitante} marcarGol={this.marcarGolVisitante.bind(this)} />
+                    <Time nome={visitante.nome} gols={this.state.gols_visitante} marcarGol={this.marcarGolVisitante.bind(this)} />
                 </div>
+                <div>{this.props.clima}</div>
                 <div style={{clear: "both"}}></div>
             </div>
         );
     }
 }
+
+
+//Propriedades que eu sou obrigado a passar
+
+PlacaContainer.propTypes = {
+   clima: React.PropTypes.string,
+   tempo: React.PropTypes.string,
+
+
+};
+
+PlacaContainer.defaultProps = {
+    clima: 'Ensolado',
+
+};
 export default PlacaContainer;

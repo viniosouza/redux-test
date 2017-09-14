@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { createStore} from 'redux';
 import Time from './Time';
 import Partida from './Partida';
 

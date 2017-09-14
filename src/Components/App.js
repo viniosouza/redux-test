@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './styles/App.css';
 import PlacaContainer from './PlacaContainer';
 
+//We need create a store, Reducers and the action
+
+
+
+
 const dados = {
   partida:{
     estadio : "Maracanã/RJ",
@@ -16,12 +21,7 @@ const dados = {
     nome: "Flamengo",
   },
 
-  botaoName:{
-    nome: "Gol",
-  },
-  botaoRefresh:{
-    nome: "Refresh"
-  },
+
 };
 
 class App extends Component {

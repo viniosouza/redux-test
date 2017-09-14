@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './styles/App.css';
 import PlacaContainer from './PlacaContainer';
 
 const dados = {
@@ -28,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <PlacaContainer {...dados} tempo={32} />
+        <PlacaContainer {...dados}  />
       </div>
 
     );
